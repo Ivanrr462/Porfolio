@@ -1,11 +1,38 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Badge from "../components/Badge.astro";
+import Linkedin from "../iconos/Linkedin.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Portfolio">
+  <main>
+    <section class="w-full lg:w-[740px] mx-auto py-44">
+      <img
+        class="rounded-full w-20 h-20 mb-4"
+        src="https://media.licdn.com/dms/image/v2/D4D03AQEO9rkLta_ljg/profile-displayphoto-scale_200_200/B4DZlE84AaIYAY-/0/1757798434667?e=1770249600&v=beta&t=FBMRmCkUh9I85cnYgTSeIUez_DE7w8hboQpGwevflx8"
+        alt="foto"
+      />
+      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+        Hey, soy Iván <a
+          href="https://www.linkedin.com/in/ivanriosdev"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+          ><Badge>Open to Work</Badge></a
+        >
+      </h1>
+      <h2 class="text-2xl opacity-80 text-wrap">
+        Desarrollador web orientado a la parte del servidor con conocimientos en
+        Administración de Sistemas Informáticos. De Málaga, España.
+        Especializado en crear API's y BackEnd's únicos.
+      </h2>
+
+      <ul>
+        <a href="https://www.linkedin.com/in/ivanriosdev">
+          <Linkedin class="w-6 h-6" />
+          LinkedIn
+        </a>
+      </ul>
+    </section>
+  </main>
 </Layout>
