@@ -1,6 +1,8 @@
 ---
 import Badge from "../components/Badge.astro";
-import Linkedin from "../iconos/Linkedin.astro";
+import Linkedin from "../components/iconos/Linkedin.astro";
+import Github from "../components/iconos/Github.astro";
+import SocialPill from "../components/SocialPill.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -23,16 +25,24 @@ import Layout from "../layouts/Layout.astro";
       </h1>
       <h2 class="text-2xl opacity-80 text-wrap">
         Desarrollador web orientado a la parte del servidor con conocimientos en
-        Administración de Sistemas Informáticos. De Málaga, España.
-        Especializado en crear API's y BackEnd's únicos.
+        Administración de Sistemas Informáticos. 
+        Especializado en crear API's y BackEnd's únicos. De Málaga, España.
       </h2>
 
-      <ul>
-        <a href="https://www.linkedin.com/in/ivanriosdev">
-          <Linkedin class="w-6 h-6" />
-          LinkedIn
-        </a>
-      </ul>
+      <nav class="flex gap-x-4 mt-8">
+          <SocialPill href="https://www.linkedin.com/in/ivanriosdev">
+            <Linkedin class="w-6 h-6" />
+            LinkedIn
+          </SocialPill>
+          <SocialPill href="https://github.com/Ivanrr462">
+            <Github class="w-6 h-6" />
+            GitHub
+          </SocialPill>
+          <SocialPill href="https://github.com/Ivanrr462">
+            <Github class="w-6 h-6" />
+            ivan.rios1712@gmail.com
+          </SocialPill>
+        </nav>
     </section>
   </main>
 </Layout>
