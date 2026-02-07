@@ -2,6 +2,8 @@
 import JavaScript from "./iconos/JavaScript.astro";
 import Docker from "./iconos/Docker.astro";
 import Strapi from "./iconos/Strapi.astro";
+import SocialPill from "../components/SocialPill.astro";
+import Github from "./iconos/Github.astro";
 
 const TAGS = {
   JAVASCRIPT: {
@@ -55,6 +57,13 @@ const PROJECTS = [
         src={image}
         alt={`Captura de pantalla del proyecto ${title}`}
       />
+      <SocialPill
+          href="https://github.com/Ivanrr462/SkyLink"
+          class="bg-[#24292e] hover:bg-[#24292e]/90 hover:ring-[#24292e] mt-4"
+        >
+          <Github class="size-4 md:size-6" />
+          Código
+        </SocialPill>
     </article>
   ))
 }

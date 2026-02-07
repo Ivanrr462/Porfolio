@@ -20,35 +20,35 @@ import Projects from "../components/Projects.astro";
         src="https://media.licdn.com/dms/image/v2/D4D03AQEO9rkLta_ljg/profile-displayphoto-crop_800_800/B4DZlE84AaIYAI-/0/1757798434555?e=1772064000&v=beta&t=Gzrg8IDKAvKU2gbSQD6gDLKXpkaNuePzTXWGymvFqt0"
         alt="foto"
       />
-      <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
-        Hey, soy Iván <a
-          href="https://www.linkedin.com/in/ivanriosdev"
-          target="_blank"
-          rel="noopener"
-          class="flex justify-center items-center"
+      <h1
+        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Hey, soy Iván Ríos<a class="flex justify-center items-center"
           ><Badge>Open to Work</Badge></a
         >
       </h1>
-      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
+      <h2 class="text-xl lg:text-2xl opacity-80 text-pretty max-w-[700px]">
         Desarrollador web orientado a la parte del servidor con conocimientos en
-        Administración de Sistemas Informáticos. 
-        Especializado en crear API's y BackEnd's únicos. De Málaga, España.
+        Administración de Sistemas Informáticos. Especializado en crear API's y
+        BackEnd's únicos. De Málaga, España.
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
-          <SocialPill href="https://www.linkedin.com/in/ivanriosdev">
-            <Linkedin class="size-4 md:size-6" />
-            LinkedIn
-          </SocialPill>
-          <SocialPill href="https://github.com/Ivanrr462">
-            <Github class="size-4 md:size-6" />
-            GitHub
-          </SocialPill>
-          <SocialPill href="mailto:ivan.rios1712@gmail.com">
-            <Mail class="size-4 md:size-6" />
-            ivan.rios1712@gmail.com
-          </SocialPill>
-        </nav>
+        <SocialPill
+          href="https://github.com/Ivanrr462"
+          class="bg-[#24292e] hover:bg-[#24292e]/90 hover:ring-[#24292e]"
+        >
+          <Github class="size-4 md:size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill
+          href="https://www.linkedin.com/in/ivanriosdev"
+          class="bg-[#0A66C2] hover:bg-[#0A66C2]/90 hover:ring-[#0A66C2]"
+        >
+          <Linkedin class="size-4 md:size-6" />
+          LinkedIn
+        </SocialPill>
+      </nav>
     </Container>
 
     <Container id="experiencia">
