@@ -1,0 +1,60 @@
+---
+import JavaScript from "./iconos/JavaScript.astro";
+import Docker from "./iconos/Docker.astro";
+import Strapi from "./iconos/Strapi.astro";
+
+const TAGS = {
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#a48b00] text-white",
+    icon: JavaScript,
+  },
+  DOCKER: {
+    name: "Docker",
+    class: "bg-[#004993] text-white",
+    icon: Docker,
+  },
+  STRAPI: {
+    name: "Strapi",
+    class: "bg-[#3d09ba] text-white",
+    icon: Strapi,
+
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "SkyLink",
+    description:
+      "SkyLink es una SPA de aerolínea ficticia que permite registrarse, buscar vuelos y realizar reservas.",
+    github: "https://github.com/Ivanrr462/SkyLink",
+    image: "/projects/SkyLink-2.jpg",
+    tags: [TAGS.JAVASCRIPT, TAGS.DOCKER, TAGS.STRAPI],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags }) => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-300 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <!-- Pastillitas para los tags (cambiar a placer) -->
+            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} px-2 py-1`}>
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${title}`}
+      />
+    </article>
+  ))
+}

@@ -1,0 +1,28 @@
+---
+import ExperienciaItem from "./ExperienciaItem.astro";
+
+const EXPERIENCIA = [
+  {
+    date: "Marzo - Junio 2025",
+    title: "Desarrollador Web Junior",
+    description:
+      "Aprendí a migrar bases de datos, automatizar tareas críticas con PowerShell apoyado en IA y gestionar proyectos usando Kanban.",
+  },
+  {
+    date: "Marzo - Junio 2024",
+    title: "Técnico Informático",
+    description:
+      "Aprendí a gestionar infraestructuras críticas automatizando despliegues con AWX/Ansible y administrando servidores con ManageEngine, además de mantener sistemas clave como SQL Server, DNS y BitLocker.",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCIA.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienciaItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

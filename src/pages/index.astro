@@ -4,17 +4,23 @@ import Linkedin from "../components/iconos/Linkedin.astro";
 import Github from "../components/iconos/Github.astro";
 import SocialPill from "../components/SocialPill.astro";
 import Layout from "../layouts/Layout.astro";
+import Mail from "../components/iconos/Mail.astro";
+import Experiencia from "../components/Experiencia.astro";
+import Container from "../components/Container.astro";
+import Briefcase from "../components/iconos/briefcase.astro";
+import CodeIcon from "../components/iconos/CodeIcon.astro";
+import Projects from "../components/Projects.astro";
 ---
 
-<Layout title="Portfolio">
-  <main>
-    <section class="w-full lg:w-[740px] mx-auto py-44">
+<Layout title="Portfolio de Ivan - Desarrollador y Programador web">
+  <main class="px-4">
+    <Container class="py-44 pb-32">
       <img
         class="rounded-full w-20 h-20 mb-4"
-        src="https://media.licdn.com/dms/image/v2/D4D03AQEO9rkLta_ljg/profile-displayphoto-scale_200_200/B4DZlE84AaIYAY-/0/1757798434667?e=1770249600&v=beta&t=FBMRmCkUh9I85cnYgTSeIUez_DE7w8hboQpGwevflx8"
+        src="https://media.licdn.com/dms/image/v2/D4D03AQEO9rkLta_ljg/profile-displayphoto-crop_800_800/B4DZlE84AaIYAI-/0/1757798434555?e=1772064000&v=beta&t=Gzrg8IDKAvKU2gbSQD6gDLKXpkaNuePzTXWGymvFqt0"
         alt="foto"
       />
-      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+      <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
         Hey, soy Iván <a
           href="https://www.linkedin.com/in/ivanriosdev"
           target="_blank"
@@ -23,26 +29,42 @@ import Layout from "../layouts/Layout.astro";
           ><Badge>Open to Work</Badge></a
         >
       </h1>
-      <h2 class="text-2xl opacity-80 text-wrap">
+      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
         Desarrollador web orientado a la parte del servidor con conocimientos en
         Administración de Sistemas Informáticos. 
         Especializado en crear API's y BackEnd's únicos. De Málaga, España.
       </h2>
 
-      <nav class="flex gap-x-4 mt-8">
+      <nav class="flex gap-4 mt-8 flex-wrap">
           <SocialPill href="https://www.linkedin.com/in/ivanriosdev">
-            <Linkedin class="w-6 h-6" />
+            <Linkedin class="size-4 md:size-6" />
             LinkedIn
           </SocialPill>
           <SocialPill href="https://github.com/Ivanrr462">
-            <Github class="w-6 h-6" />
+            <Github class="size-4 md:size-6" />
             GitHub
           </SocialPill>
-          <SocialPill href="https://github.com/Ivanrr462">
-            <Github class="w-6 h-6" />
+          <SocialPill href="mailto:ivan.rios1712@gmail.com">
+            <Mail class="size-4 md:size-6" />
             ivan.rios1712@gmail.com
           </SocialPill>
         </nav>
-    </section>
+    </Container>
+
+    <Container id="experiencia">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-7" />
+        Experiencia laboral
+      </h2>
+      <Experiencia />
+    </Container>
+
+    <Container id="proyectos">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <CodeIcon class="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
+    </Container>
   </main>
 </Layout>
