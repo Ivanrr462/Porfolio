@@ -84,13 +84,13 @@ const PROJECTS = [
       <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
       <footer class="flex items-end justify-start mt-4 gap-x-4">
           {github && (
-            <SocialPill href={github}>
+            <SocialPill href={github} class="bg-[#24292e] hover:bg-[#24292e]/90 hover:ring-[#24292e]">
               <Github class="size-6" />
               Code
             </SocialPill>
           )}
           {link && (
-            <SocialPill href={link}>
+            <SocialPill href={link} class="bg-blue-500 hover:bg-blue-500/90 hover:ring-blue-500">
               <Link class="size-4" />
               Preview
             </SocialPill>
