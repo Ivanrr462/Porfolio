@@ -5,6 +5,7 @@ import Strapi from "./iconos/Strapi.astro";
 import SocialPill from "../components/SocialPill.astro";
 import Github from "./iconos/Github.astro";
 import php from "./iconos/php.astro";
+import Laravel from "./iconos/Laravel.astro";
 import Link from "./iconos/link.astro";
 
 const TAGS = {
@@ -22,17 +23,29 @@ const TAGS = {
     name: "Strapi",
     class: "bg-[#3d09ba] text-white",
     icon: Strapi,
-
   },
   PHP: {
     name: "PHP",
     class: "bg-[#6C4FA1] text-white",
     icon: php,
-
+  },
+  LARAVEL: {
+    name: "Laravel",
+    class: "bg-[#8A2A19] text-white",
+    icon: Laravel,
   },
 };
 
 const PROJECTS = [
+  {
+    title: "API E-commerce",
+    description:
+      "API en Laravel para un e-commerce tecnológico",
+    github: "https://github.com/Ivanrr462/API-TechUniverse",
+    link: "https://ivan123.alwaysdata.net/api/productos",
+    image: "/projects/api.png",
+    tags: [TAGS.LARAVEL, TAGS.PHP],
+  },
   {
     title: "SkyLink",
     description:
@@ -46,10 +59,10 @@ const PROJECTS = [
     description:
       "FlickPick es un videoclub online desarrollado como Trabajo de Fin de Grado",
     github: "https://github.com/Ivanrr462/FlickPick",
-    link: "https://flickpick.alwaysdata.net/",
     image: "/projects/flickpick.jpg",
     tags: [TAGS.PHP, TAGS.JAVASCRIPT, TAGS.DOCKER],
   },
+  
 ];
 ---
 
