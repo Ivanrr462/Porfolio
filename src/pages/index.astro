@@ -16,21 +16,35 @@ import Goat from "../components/Goat.astro";
 <Layout title="Portfolio de Ivan - Desarrollador y Programador web">
   <main class="px-4">
     <Container class="py-44 pb-32">
-      <img
-        class="rounded-full w-20 h-20 mb-4"
-        src="/images/me.png"
-        alt="foto"
-      />
-      <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
-      >
-        Hey, I'm Iván Ríos<a class="flex justify-center items-center"
-          ><Badge>Open to Work</Badge></a
-        >
-      </h1>
-      <h2 class="text-xl lg:text-2xl opacity-80 text-pretty max-w-[700px]">
-        I have experience building modern web applications and a strong foundation in Networked Computer Systems Administration. I enjoy exploring new technologies, creating efficient solutions, and continuously improving my workflow.
-      </h2>
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <img
+          class="rounded-full w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44"
+          src="/images/me.png"
+          alt="foto"
+        />
+        <div class="max-w-3xl">
+          <div class="flex flex-col gap-4">
+            <div>
+              <div class="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-2">
+                <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold">
+                  Hey, I'm Iván Ríos
+                </h1>
+                <Badge>Open to Work</Badge>
+              </div>
+              <p class="mt-3 text-grey text-lg lg:text-xl opacity-60 text-pretty max-w-[700px]">
+                Full Stack Developer who loves creating cool stuff and solving real problems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="mt-20 max-w-3xl">
+        <h2 class="text-2xl text-white font-semibold mb-4">About</h2>
+        <p class="text-grey opacity-60 text-pretty">
+          I have experience building modern web applications and a strong foundation in Networked Computer Systems Administration. I enjoy exploring new technologies, creating efficient solutions, and continuously improving my workflow.
+        </p>
+      </section>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
         <SocialPill
