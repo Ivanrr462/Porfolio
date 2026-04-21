@@ -1,38 +1,28 @@
 ---
-import JavaScript from "./iconos/JavaScript.astro";
-import Docker from "./iconos/Docker.astro";
-import Strapi from "./iconos/Strapi.astro";
 import SocialPill from "../components/SocialPill.astro";
 import Github from "./iconos/Github.astro";
-import php from "./iconos/php.astro";
-import Laravel from "./iconos/Laravel.astro";
 import Link from "./iconos/link.astro";
 
 const TAGS = {
   JAVASCRIPT: {
     name: "JavaScript",
     class: "bg-[#a48b00] text-white",
-    icon: JavaScript,
   },
   DOCKER: {
     name: "Docker",
     class: "bg-[#004993] text-white",
-    icon: Docker,
   },
   STRAPI: {
     name: "Strapi",
     class: "bg-[#3d09ba] text-white",
-    icon: Strapi,
   },
   PHP: {
     name: "PHP",
     class: "bg-[#6C4FA1] text-white",
-    icon: php,
   },
   LARAVEL: {
     name: "Laravel",
     class: "bg-[#8A2A19] text-white",
-    icon: Laravel,
   },
 };
 
@@ -42,7 +32,7 @@ const PROJECTS = [
     description:
       "API en Laravel para un e-commerce tecnológico",
     github: "https://github.com/Ivanrr462/API-TechUniverse",
-    link: "https://ivan123.alwaysdata.net/api/productos",
+    link: "https://ivan123.alwaysdata.net/api/documentation",
     image: "/projects/api.png",
     tags: [TAGS.LARAVEL, TAGS.PHP],
   },
@@ -87,7 +77,6 @@ const PROJECTS = [
               <span
                 class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
               >
-                <tag.icon class="size-4" />
                 {tag.name}
               </span>
             </li>
