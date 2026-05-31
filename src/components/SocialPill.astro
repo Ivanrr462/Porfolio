@@ -1,24 +1,27 @@
 ---
-const {class: className} = Astro.props;
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
 ---
 
 <a
-  href={Astro.props.href}
+  href={href}
   target="_blank"
   rel="noopener noreferrer"
-  class={`${className} flex overflow-hidden items-center text-sm font-medium
-        focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring
-        disabled:pointer-events-none disabled:opacity-50 text-white shadow
-        h-9 px-4 py-2 max-w-32 whitespace-pre md:flex group relative w-full
-        justify-center gap-2 rounded-md transition-all duration-300 ease-out hover:ring-2
-        hover:ring-offset-2`}
+  class={`${className} inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium
+    text-white shadow transition-all duration-300 ease-out
+    hover:ring-2 hover:ring-offset-2 hover:ring-offset-transparent
+    focus-visible:outline-none focus-visible:ring-2
+    active:scale-95 overflow-hidden relative group whitespace-nowrap`}
 >
+  <!-- Shine effect -->
   <span
     class="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 bg-white opacity-10
-          transition-all duration-1000 ease-out group-hover:-translate-x-40"
+      transition-all duration-700 ease-out group-hover:-translate-x-40 pointer-events-none"
   ></span>
 
-  <div class="flex items-center gap-2">
-    <slot />
-  </div>
+  <slot />
 </a>

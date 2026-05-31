@@ -4,84 +4,109 @@ import Linkedin from "../components/iconos/Linkedin.astro";
 import Github from "../components/iconos/Github.astro";
 import SocialPill from "../components/SocialPill.astro";
 import Layout from "../layouts/Layout.astro";
-import Mail from "../components/iconos/Mail.astro";
 import Experiencia from "../components/Experiencia.astro";
 import Container from "../components/Container.astro";
 import Briefcase from "../components/iconos/briefcase.astro";
 import User from "../components/iconos/user.astro";
 import CodeIcon from "../components/iconos/CodeIcon.astro";
 import Projects from "../components/Projects.astro";
+import TechSkills from "../components/TechSkills.astro";
+import Contact from "../components/Contact.astro";
 import Goat from "../components/Goat.astro";
 ---
 
-<Layout title="Portfolio de Ivan - Desarrollador y Programador web">
+<Layout title="Iván Ríos — Full Stack Developer">
   <main class="px-4">
-    <Container class="py-44 pb-32">
-      <div class="flex flex-col md:flex-row items-center gap-10">
+
+    <!-- Hero -->
+    <Container class="pt-28 pb-16 md:pt-44 md:pb-32">
+      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
         <img
-          class="rounded-full w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44"
+          class="rounded-full w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 object-cover shadow-lg"
           src="/images/me.png"
-          alt="foto"
+          alt="Iván Ríos profile photo"
         />
-        <div class="max-w-3xl">
-          <div class="flex flex-col gap-4">
-            <div>
-              <div class="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-2">
-                <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold">
-                  Hey, I'm Iván Ríos
-                </h1>
-                <Badge>Open to Work</Badge>
-              </div>
-              <p class="mt-3 text-grey text-lg lg:text-xl opacity-60 text-pretty max-w-[700px]">
-                Full Stack Developer who loves creating cool stuff and solving real problems.
-              </p>
-            </div>
+        <div>
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2">
+            <h1 class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold">
+              Hey, I'm Iván Ríos
+            </h1>
+            <Badge>Open to Work</Badge>
           </div>
+          <p class="mt-3 text-gray-600 dark:text-gray-400 text-lg lg:text-xl text-pretty max-w-[600px]">
+            Full Stack Developer who loves creating cool stuff and solving real problems.
+          </p>
         </div>
       </div>
 
-      <section class="mt-20 max-w-3xl" id="about">
-        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+      <section class="mt-14 md:mt-20" id="about">
+        <h2 class="text-2xl md:text-3xl font-semibold mb-4 md:mb-6 flex gap-x-3 items-center justify-center md:justify-start text-gray-900 dark:text-white">
           <User class="size-7" />
           About
         </h2>
-        <p class="text-grey opacity-60 text-pretty">
-          I have experience building modern web applications and a strong foundation in Networked Computer Systems Administration. I enjoy exploring new technologies, creating efficient solutions, and continuously improving my workflow.
+        <p class="text-gray-600 dark:text-gray-400 text-pretty max-w-2xl leading-relaxed md:text-left text-center">
+          I have experience building modern web applications and a strong foundation in
+          Networked Computer Systems Administration. I enjoy exploring new technologies,
+          creating efficient solutions, and continuously improving my workflow.
         </p>
       </section>
 
-      <nav class="flex gap-4 mt-8 flex-wrap">
+      <div class="flex gap-4 mt-8 flex-wrap justify-center md:justify-start">
         <SocialPill
           href="https://github.com/Ivanrr462"
           class="bg-[#24292e] hover:bg-[#24292e]/90 hover:ring-[#24292e]"
         >
-          <Github class="size-4 md:size-6" />
+          <Github class="size-4 md:size-5" />
           GitHub
         </SocialPill>
         <SocialPill
           href="https://www.linkedin.com/in/ivanriosdev"
           class="bg-[#0A66C2] hover:bg-[#0A66C2]/90 hover:ring-[#0A66C2]"
         >
-          <Linkedin class="size-4 md:size-6" />
+          <Linkedin class="size-4 md:size-5" />
           LinkedIn
         </SocialPill>
-      </nav>
+      </div>
     </Container>
 
+    <!-- Tech Skills -->
+    <Container id="skills">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
+        <svg class="size-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Tech Skills
+      </h2>
+      <TechSkills />
+    </Container>
+
+    <!-- Work Experience -->
     <Container id="experiencia">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
         <Briefcase class="size-7" />
-        Experiencia laboral
+        Work Experience
       </h2>
       <Experiencia />
     </Container>
 
+    <!-- Projects -->
     <Container id="proyectos">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
         <CodeIcon class="size-7" />
-        Proyectos
+        Projects
       </h2>
       <Projects />
+    </Container>
+
+    <!-- Contact -->
+    <Container id="contacto">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
+        <svg class="size-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Contact
+      </h2>
+      <Contact />
     </Container>
 
     <Goat />

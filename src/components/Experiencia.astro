@@ -3,23 +3,33 @@ import ExperienciaItem from "./ExperienciaItem.astro";
 
 const EXPERIENCIA = [
   {
-    date: "Marzo - Junio 2025",
-    title: "Desarrollador Web Junior",
-    empresa: "Agencia Digital de Andalucía",
+    date: "February – May 2026",
+    title: "Junior Software Developer",
+    empresa: "Tsunoa Games",
+    empresaUrl: "https://tsunoagames.com/",
     description:
-      "Aprendí a migrar bases de datos, automatizar tareas críticas con PowerShell apoyado en IA y gestionar proyectos usando Kanban.",
+      "Built and maintained WordPress sites, developing and reviewing automations with AutomatorWP to optimize workflows. Managed team tasks using GitLab Issue Boards.",
   },
   {
-    date: "Marzo - Junio 2024",
-    title: "Técnico Informático",
-    empresa: "Emasa",
+    date: "March – June 2025",
+    title: "Junior Web Developer",
+    empresa: "Agencia Digital de Andalucía",
+    empresaUrl: "https://www.juntadeandalucia.es/organismos/ada.html",
     description:
-      "Aprendí a gestionar infraestructuras críticas automatizando despliegues con AWX/Ansible y administrando servidores con ManageEngine, además de mantener sistemas clave como SQL Server, DNS y BitLocker.",
+      "Migrated databases, automated critical tasks using AI-assisted PowerShell scripting, and managed projects with Kanban methodology.",
+  },
+  {
+    date: "March – June 2024",
+    title: "IT Technician",
+    empresa: "Emasa",
+    empresaUrl: "https://www.emasa.es/",
+    description:
+      "Managed critical infrastructure by automating deployments with AWX/Ansible and administering servers via ManageEngine. Maintained key systems including SQL Server, DNS, and BitLocker.",
   },
 ];
 ---
 
-<ol class="relative border-s border-gray-200 ml-3">
+<ol class="relative border-s border-gray-300 dark:border-gray-700 ml-3">
   {
     EXPERIENCIA.map((experience) => (
       <li class="mb-10 ms-4">

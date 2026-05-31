@@ -1,56 +1,131 @@
 ---
 const navItems = [
-  {
-    title: "Experiencia",
-    label: "experiencia",
-    url: "/#experiencia",
-  },
-  {
-    title: "Proyectos",
-    label: "proyectos",
-    url: "/#proyectos",
-  },
-  {
-    title: "Contacto",
-    label: "contacto",
-    url: "mailto:ivan.rios1712@gmail.com",
-  },
+  { title: "Skills",      label: "skills",      url: "/#skills" },
+  { title: "Experience",  label: "experiencia", url: "/#experiencia" },
+  { title: "Projects",    label: "proyectos",   url: "/#proyectos" },
+  { title: "Contact",     label: "contacto",    url: "/#contacto" },
 ];
 ---
 
-<header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
->
+<header class="fixed top-0 z-50 w-full flex justify-center pt-3 px-4">
+
+  <!-- Desktop nav -->
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-200 justify-center items-center"
+    id="desktop-nav"
+    class="hidden md:flex items-center gap-1 px-3 text-sm font-medium rounded-full
+      text-gray-700 dark:text-gray-200 transition-colors duration-300"
   >
-    {
-      navItems.map((link) => (
-        <a
-          class="relative text-[15px] block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
+    {navItems.map((link) => (
+      <a
+        class="relative text-[15px] block px-3 py-2 transition-colors duration-200
+          hover:text-blue-600 dark:hover:text-blue-400"
+        aria-label={link.label}
+        href={link.url}
+      >
+        {link.title}
+      </a>
+    ))}
+
+    <button
+      id="theme-toggle"
+      aria-label="Toggle theme"
+      class="ml-2 p-2 rounded-full transition-all duration-300
+        text-gray-600 dark:text-gray-300
+        hover:bg-gray-200/70 dark:hover:bg-white/10"
+    >
+      <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+      </svg>
+      <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-9h-1M4.34 12h-1m15.07-6.07-.71.71M6.34 17.66l-.71.71M17.66 17.66l.71.71M6.34 6.34l.71.71M12 5a7 7 0 100 14A7 7 0 0012 5z" />
+      </svg>
+    </button>
   </nav>
+
+  <!-- Mobile bar -->
+  <div
+    id="mobile-bar"
+    class="md:hidden flex items-center justify-between w-full max-w-sm
+      px-4 py-2 rounded-full
+      text-gray-700 dark:text-gray-200"
+  >
+    <span class="text-sm font-semibold text-gray-900 dark:text-white">Iván Ríos</span>
+
+    <div class="flex items-center gap-1">
+      <!-- Theme toggle mobile -->
+      <button
+        id="theme-toggle-mobile"
+        aria-label="Toggle theme"
+        class="p-2 rounded-full transition-all duration-300
+          text-gray-600 dark:text-gray-300
+          hover:bg-gray-200/70 dark:hover:bg-white/10"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-9h-1M4.34 12h-1m15.07-6.07-.71.71M6.34 17.66l-.71.71M17.66 17.66l.71.71M6.34 6.34l.71.71M12 5a7 7 0 100 14A7 7 0 0012 5z" />
+        </svg>
+      </button>
+
+      <!-- Hamburger -->
+      <button
+        id="menu-toggle"
+        aria-label="Open menu"
+        class="p-2 rounded-full transition-all duration-300
+          text-gray-600 dark:text-gray-300
+          hover:bg-gray-200/70 dark:hover:bg-white/10"
+      >
+        <svg id="icon-menu" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden absolute top-16 left-4 right-4 rounded-2xl shadow-xl
+      bg-white/90 dark:bg-gray-900/90 backdrop-blur-md
+      border border-gray-200/60 dark:border-white/10
+      overflow-hidden transition-all duration-300"
+  >
+    {navItems.map((link) => (
+      <a
+        href={link.url}
+        aria-label={link.label}
+        class="mobile-nav-link block px-5 py-3.5 text-sm font-medium
+          text-gray-700 dark:text-gray-200
+          hover:bg-gray-100 dark:hover:bg-white/5
+          hover:text-blue-600 dark:hover:text-blue-400
+          border-b border-gray-100 dark:border-white/5 last:border-0
+          transition-colors duration-200"
+      >
+        {link.title}
+      </a>
+    ))}
+  </div>
+
 </header>
 
 <script>
+  // Intersection observer para nav activo
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav a");
+    const sections = document.querySelectorAll("section, div[id]");
+    const navLinks = document.querySelectorAll("header nav a, header #mobile-menu a");
 
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-blue-500");
+          navLinks.forEach((item) => {
+            if (item.getAttribute("aria-label") === entry.target.id) {
+              item.classList.add("text-blue-600", "dark:text-blue-400");
             } else {
-              item.classList.remove("text-blue-500");
+              item.classList.remove("text-blue-600", "dark:text-blue-400");
             }
           });
         }
@@ -63,43 +138,115 @@ const navItems = [
       threshold: 0.3,
     });
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
 
-    // Cleanup function
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
         observer.disconnect();
       } else {
-        sections.forEach((section) => {
-          observer.observe(section);
-        });
+        sections.forEach((section) => observer.observe(section));
       }
     };
+  });
+
+  // Theme toggles (desktop + mobile)
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }
+
+  document.getElementById("theme-toggle")?.addEventListener("click", toggleTheme);
+  document.getElementById("theme-toggle-mobile")?.addEventListener("click", toggleTheme);
+
+  // Hamburger menu
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const iconMenu = document.getElementById("icon-menu");
+  const iconClose = document.getElementById("icon-close");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = !mobileMenu?.classList.contains("hidden");
+    mobileMenu?.classList.toggle("hidden", isOpen);
+    iconMenu?.classList.toggle("hidden", !isOpen);
+    iconClose?.classList.toggle("hidden", isOpen);
+  });
+
+  // Cierra el menú al hacer click en un link
+  document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
+      iconMenu?.classList.remove("hidden");
+      iconClose?.classList.add("hidden");
+    });
   });
 </script>
 
 <style>
-  nav {
-    animation: nav-shadown 1s linear both;
+  #desktop-nav {
+    animation: nav-shadow 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
   }
 
-  @keyframes nav-shadown {
-    0% {
-      /* Sustituimos @apply por CSS real */
-      background-color: rgba(255, 255, 255, 0);
-    }
+  #mobile-bar {
+    animation: nav-shadow-mobile 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadow {
+    0%   { background-color: transparent; }
     100% {
-      /* Equivalente a shadow-lg + ring-1 + backdrop-blur + ring-white/10 */
-      box-shadow:
-        0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -4px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  @keyframes nav-shadow-mobile {
+    0%   { background-color: transparent; }
+    100% {
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  :global(html.dark) #desktop-nav {
+    animation: nav-shadow-dark 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  :global(html.dark) #mobile-bar {
+    animation: nav-shadow-dark-mobile 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadow-dark {
+    0%   { background-color: transparent; }
+    100% {
+      background-color: rgba(10, 10, 30, 0.7);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  @keyframes nav-shadow-dark-mobile {
+    0%   { background-color: transparent; }
+    100% {
+      background-color: rgba(10, 10, 30, 0.8);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
   }
 </style>

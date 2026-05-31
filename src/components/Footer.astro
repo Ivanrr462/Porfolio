@@ -1,21 +1,88 @@
-<footer
-  class="rounded-lg shadow m-4 bg-black/20 backdrop-blur-lg w-full xl:w-[1120px] mx-auto mb-10"
->
-  <div
-    class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
-  >
-    <span class="text-sm  sm:text-center text-blue-300/50"
-      >© 2026 Ivan Ríos. All Rights Reserved.
-    </span>
-    <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium text-white/90 sm:mt-0"
-    >
-      <li>
-        <a href="#top" class="hover:underline hover:text-blue-500 me-4 md:me-6">Sobre mí</a>
-      </li>
-      <li>
-        <a href="mailto:ivan.rios1712@gmail.com" class="hover:underline hover:text-blue-500">Contacto</a>
-      </li>
-    </ul>
+---
+import Github from "./iconos/Github.astro";
+import Linkedin from "./iconos/Linkedin.astro";
+import Mail from "./iconos/Mail.astro";
+---
+
+<footer class="w-full mt-auto">
+  <!-- Divider -->
+  <div class="w-full lg:w-[740px] mx-auto px-4">
+    <div class="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-white/10 to-transparent"></div>
+  </div>
+
+  <div class="w-full lg:w-[740px] mx-auto px-4 py-10">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-8 sm:gap-6">
+
+      <!-- Left: brand + tagline -->
+      <div class="flex flex-col items-center sm:items-start gap-1">
+        <span class="text-base font-semibold text-gray-900 dark:text-white">Iván Ríos</span>
+        <span class="text-sm text-gray-500 dark:text-gray-400">Full Stack Developer</span>
+      </div>
+
+      <!-- Center: nav links -->
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500 dark:text-gray-400">
+        <a href="#top" class="hover:text-gray-900 dark:hover:text-white transition-colors">About</a>
+        <a href="/#skills" class="hover:text-gray-900 dark:hover:text-white transition-colors">Skills</a>
+        <a href="/#experiencia" class="hover:text-gray-900 dark:hover:text-white transition-colors">Experience</a>
+        <a href="/#proyectos" class="hover:text-gray-900 dark:hover:text-white transition-colors">Projects</a>
+        <a href="/#contacto" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right: social icons -->
+      <div class="flex items-center gap-3">
+        <a
+          href="https://github.com/Ivanrr462"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          class="p-2 rounded-lg text-gray-500 dark:text-gray-400
+            hover:text-gray-900 dark:hover:text-white
+            hover:bg-gray-100 dark:hover:bg-white/8
+            transition-all duration-200"
+        >
+          <Github class="size-4" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ivanriosdev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="p-2 rounded-lg text-gray-500 dark:text-gray-400
+            hover:text-gray-900 dark:hover:text-white
+            hover:bg-gray-100 dark:hover:bg-white/8
+            transition-all duration-200"
+        >
+          <Linkedin class="size-4" />
+        </a>
+        <a
+          href="mailto:ivan.rios1712@gmail.com"
+          aria-label="Email"
+          class="p-2 rounded-lg text-gray-500 dark:text-gray-400
+            hover:text-gray-900 dark:hover:text-white
+            hover:bg-gray-100 dark:hover:bg-white/8
+            transition-all duration-200"
+        >
+          <Mail class="size-4" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom copyright -->
+    <div class="mt-8 text-center text-xs text-gray-400 dark:text-gray-600">
+      © {new Date().getFullYear()} Iván Ríos · Built with
+      <a
+        href="https://astro.build"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-gray-600 dark:hover:text-gray-400 transition-colors underline underline-offset-2"
+      >Astro</a>
+      &
+      <a
+        href="https://tailwindcss.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-gray-600 dark:hover:text-gray-400 transition-colors underline underline-offset-2"
+      >Tailwind CSS</a>
+    </div>
   </div>
 </footer>
