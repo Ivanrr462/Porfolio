@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Badge from "../components/Badge.astro";
 import Linkedin from "../components/iconos/Linkedin.astro";
 import Github from "../components/iconos/Github.astro";
+import Download from "../components/iconos/Download.astro";
 import SocialPill from "../components/SocialPill.astro";
 import Layout from "../layouts/Layout.astro";
 import Experiencia from "../components/Experiencia.astro";
@@ -69,6 +70,13 @@ import profileImg from '../assets/me.png';
         >
           <Linkedin class="size-4 md:size-5" />
           LinkedIn
+        </SocialPill>
+        <SocialPill
+          href="/CV Ivan Rios Raya Ingles.pdf"
+          class="bg-indigo-600 hover:bg-indigo-700 hover:ring-indigo-600"
+        >
+          <Download class="size-4 md:size-5" />
+          Download CV
         </SocialPill>
       </div>
     </Container>
