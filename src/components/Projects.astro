@@ -1,7 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import SocialPill from "../components/SocialPill.astro";
 import Github from "./iconos/Github.astro";
 import Link from "./iconos/link.astro";
+
+// Importar imágenes para optimización
+import apiImg from '../assets/projects/api.png';
+import skylinkImg from '../assets/projects/SkyLink-2.jpg';
+import flickpickImg from '../assets/projects/flickpick.jpg';
 
 const TAGS = {
   JAVASCRIPT: { name: "JavaScript", class: "bg-yellow-400/15 border border-yellow-400/30 text-yellow-700 dark:text-yellow-300" },
@@ -21,7 +27,7 @@ const PROJECTS = [
       "REST API built with Laravel for a tech e-commerce store, with full Swagger documentation.",
     github: "https://github.com/Ivanrr462/API-TechUniverse",
     link: "https://ivan123.alwaysdata.net/api/documentation",
-    image: "/projects/api.png",
+    image: apiImg,
     tags: [TAGS.LARAVEL, TAGS.PHP, TAGS.MYSQL],
   },
   {
@@ -29,7 +35,7 @@ const PROJECTS = [
     description:
       "SPA for a fictional airline that lets users sign up, search for flights, and make bookings.",
     github: "https://github.com/Ivanrr462/SkyLink",
-    image: "/projects/SkyLink-2.jpg",
+    image: skylinkImg,
     tags: [TAGS.JAVASCRIPT, TAGS.DOCKER, TAGS.STRAPI],
   },
   {
@@ -37,7 +43,7 @@ const PROJECTS = [
     description:
       "Online video rental platform developed as a final degree project.",
     github: "https://github.com/Ivanrr462/FlickPick",
-    image: "/projects/flickpick.jpg",
+    image: flickpickImg,
     tags: [TAGS.PHP, TAGS.JAVASCRIPT, TAGS.MYSQL, TAGS.DOCKER],
   },
 ];
@@ -55,7 +61,7 @@ const PROJECTS = [
       hover:border-gray-300 dark:hover:border-gray-700
       bg-white/50 dark:bg-gray-900/50
       transition-colors duration-300">
-      <img alt={title} class="object-cover object-top w-full h-48 sm:h-56 md:h-full transition duration-500 md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+      <Image alt={title} class="object-cover object-top w-full h-48 sm:h-56 md:h-full transition duration-500 md:scale-110 md:group-hover:scale-105" src={image} />
     </div>
   </div>
 

@@ -2,16 +2,32 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Transición suave de colores al cambiar de tema */
-*,
-*::before,
-*::after {
-  transition-property: background-color, border-color, color;
-  transition-duration: 300ms;
+/* Optimizaciones de rendimiento */
+* {
+  box-sizing: border-box;
+}
+
+/* Transiciones optimizadas solo en elementos necesarios */
+a, button, input, select, textarea {
+  transition-property: background-color, border-color, color, opacity;
+  transition-duration: 200ms;
   transition-timing-function: ease;
 }
 
-/* Excepción: no animar propiedades de transform/opacity/etc globalmente */
+/* Exclude transforms from transitions for better performance */
 .no-theme-transition {
   transition: none !important;
+}
+
+/* Optimizar render performance */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Lazy load optimization */
+img {
+  content-visibility: auto;
 }

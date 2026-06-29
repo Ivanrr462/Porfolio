@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Badge from "../components/Badge.astro";
 import Linkedin from "../components/iconos/Linkedin.astro";
 import Github from "../components/iconos/Github.astro";
@@ -13,6 +14,7 @@ import Projects from "../components/Projects.astro";
 import TechSkills from "../components/TechSkills.astro";
 import Contact from "../components/Contact.astro";
 import Goat from "../components/Goat.astro";
+import profileImg from '../assets/me.png';
 ---
 
 <Layout title="Iván Ríos — Full Stack Developer">
@@ -21,10 +23,12 @@ import Goat from "../components/Goat.astro";
     <!-- Hero -->
     <Container class="pt-28 pb-16 md:pt-44 md:pb-32">
       <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
-        <img
-          class="rounded-full w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 object-cover shadow-lg"
-          src="/images/me.png"
+        <Image
+          src={profileImg}
           alt="Iván Ríos profile photo"
+          class="rounded-full w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 object-cover shadow-lg"
+          widths={[128, 160, 176]}
+          sizes="(max-width: 768px) 128px, (max-width: 1024px) 160px, 176px"
         />
         <div>
           <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2">

@@ -16,10 +16,28 @@ const {title} = Astro.props
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Desarrollador Full Stack especializado en crear soluciones web modernas. Experiencia con Laravel, JavaScript, Docker y más." />
+		<meta name="keywords" content="desarrollador, full stack, web, portfolio" />
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#050816" media="(prefers-color-scheme: dark)" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="Desarrollador Full Stack especializado en crear soluciones web modernas." />
+		<meta property="og:type" content="website" />
 		<title>{title}</title>
+		
+		<!-- Preconnect a fuentes externas -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+		
+		<!-- Preload de fuentes críticas -->
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/ubuntu.woff2" crossorigin />
+		
+		<!-- DNS Prefetch -->
+		<link rel="dns-prefetch" href="//github.com" />
+		<link rel="dns-prefetch" href="//linkedin.com" />
+		
 		<!-- Evita flash de tema incorrecto -->
 		<script is:inline>
 			const saved = localStorage.getItem('theme');

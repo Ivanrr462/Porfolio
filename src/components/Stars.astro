@@ -4,19 +4,19 @@
 <div class="fixed inset-0 -z-50 transition-colors duration-500 bg-slate-50 dark:bg-[#050816]">
 
   <!-- Orb top-right -->
-  <div class="absolute pointer-events-none rounded-full blur-[120px] transition-all duration-700
+  <div class="absolute pointer-events-none rounded-full blur-[120px]
     w-[700px] h-[700px] -top-48 -right-24
     bg-blue-300/40 dark:bg-blue-600/10">
   </div>
 
   <!-- Orb bottom-left -->
-  <div class="absolute pointer-events-none rounded-full blur-[120px] transition-all duration-700
+  <div class="absolute pointer-events-none rounded-full blur-[120px]
     w-[600px] h-[600px] -bottom-36 -left-24
     bg-violet-300/30 dark:bg-violet-700/10">
   </div>
 
   <!-- Orb center -->
-  <div class="absolute pointer-events-none rounded-full blur-[140px] transition-all duration-700
+  <div class="absolute pointer-events-none rounded-full blur-[140px]
     w-[900px] h-[500px] top-[40%] left-[20%]
     bg-cyan-200/20 dark:bg-cyan-900/5">
   </div>
@@ -31,11 +31,18 @@
       linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
     background-size: 60px 60px;
+    background-attachment: fixed;
   }
 
   :global(html.dark) .grid-overlay {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    div {
+      transition: none !important;
+    }
   }
 </style>
