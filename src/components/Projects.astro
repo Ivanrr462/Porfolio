@@ -28,6 +28,7 @@ const PROJECTS = [
     github: "https://github.com/Ivanrr462/API-TechUniverse",
     link: "https://ivan123.alwaysdata.net/api/documentation",
     image: apiImg,
+    featured: true,
     tags: [TAGS.LARAVEL, TAGS.PHP, TAGS.MYSQL],
   },
   {
@@ -36,6 +37,7 @@ const PROJECTS = [
       "SPA for a fictional airline that lets users sign up, search for flights, and make bookings.",
     github: "https://github.com/Ivanrr462/SkyLink",
     image: skylinkImg,
+    featured: false,
     tags: [TAGS.JAVASCRIPT, TAGS.DOCKER, TAGS.STRAPI],
   },
   {
@@ -44,60 +46,113 @@ const PROJECTS = [
       "Online video rental platform developed as a final degree project.",
     github: "https://github.com/Ivanrr462/FlickPick",
     image: flickpickImg,
+    featured: false,
     tags: [TAGS.PHP, TAGS.JAVASCRIPT, TAGS.MYSQL, TAGS.DOCKER],
   },
 ];
+
+const FEATURED_PROJECT = PROJECTS[0];
+const SECONDARY_PROJECTS = PROJECTS.slice(1);
 ---
 
-<div class="flex flex-col gap-y-16">
-  {
-    PROJECTS.map(({ image, title, description, tags, github, link }) => (
-    <article class="flex flex-col gap-6 md:flex-row md:gap-8">
-  <div class="w-full md:w-1/2 group">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8
-      transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl
-      md:group-hover:-translate-y-1 md:group-hover:shadow-2xl
-      border border-gray-200 dark:border-gray-800
-      hover:border-gray-300 dark:hover:border-gray-700
-      bg-white/50 dark:bg-gray-900/50
-      transition-colors duration-300">
-      <Image alt={title} class="object-cover object-top w-full h-48 sm:h-56 md:h-full transition duration-500 md:scale-110 md:group-hover:scale-105" src={image} />
+<div class="flex flex-col gap-6">
+  <article class="relative flex flex-col overflow-hidden rounded-[1.75rem] border border-gray-200/80 bg-white/70 shadow-[0_20px_60px_-25px_rgba(15,23,42,0.25)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_70px_-25px_rgba(15,23,42,0.35)] dark:border-gray-800 dark:bg-gray-900/70 xl:flex-row xl:items-stretch">
+    <div class="group relative overflow-hidden h-72 sm:h-80 xl:w-[60%]">
+      <Image
+        alt={FEATURED_PROJECT.title}
+        class="h-full w-full object-cover object-top transition duration-500 md:scale-105 md:group-hover:scale-100"
+        src={FEATURED_PROJECT.image}
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
     </div>
-  </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
-      {title}
-    </h3>
-    <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2 flex-wrap gap-y-2">
-        {tags.map((tag) => (
-          <li>
-            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+    <div class="flex flex-1 flex-col p-7 xl:justify-between">
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
+            {FEATURED_PROJECT.title}
+          </h3>
+        </div>
+
+        <div class="mt-3 flex flex-wrap gap-2">
+          {FEATURED_PROJECT.tags.map((tag) => (
+            <span class={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${tag.class}`}>
               {tag.name}
             </span>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
 
-      <div class="mt-2 text-gray-600 dark:text-gray-400 text-pretty">{description}</div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-        {github && (
-          <SocialPill href={github} class="bg-gray-800 hover:bg-gray-700 hover:ring-gray-700 dark:bg-[#24292e] dark:hover:bg-[#24292e]/90 dark:hover:ring-[#24292e]">
+        <p class="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-400">
+          {FEATURED_PROJECT.description}
+        </p>
+      </div>
+
+      <footer class="mt-6 flex flex-wrap items-center gap-3">
+        {FEATURED_PROJECT.github && (
+          <SocialPill href={FEATURED_PROJECT.github} class="bg-gray-800 hover:bg-gray-700 hover:ring-gray-700 dark:bg-[#24292e] dark:hover:bg-[#24292e]/90 dark:hover:ring-[#24292e]">
             <Github class="size-6" />
             Code
           </SocialPill>
         )}
-        {link && (
-          <SocialPill href={link} class="bg-blue-600 hover:bg-blue-700 hover:ring-blue-600">
+        {FEATURED_PROJECT.link && (
+          <SocialPill href={FEATURED_PROJECT.link} class="bg-blue-600 hover:bg-blue-700 hover:ring-blue-600">
             <Link class="size-4" />
             Preview
           </SocialPill>
         )}
       </footer>
     </div>
+  </article>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    {
+      SECONDARY_PROJECTS.map(({ image, title, description, tags, github, link }) => (
+        <article class="relative flex flex-col overflow-hidden rounded-[1.75rem] border border-gray-200/80 bg-white/70 shadow-[0_20px_60px_-25px_rgba(15,23,42,0.25)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_70px_-25px_rgba(15,23,42,0.35)] dark:border-gray-800 dark:bg-gray-900/70">
+          <div class="group relative overflow-hidden h-56 sm:h-64">
+            <Image
+              alt={title}
+              class="h-full w-full object-cover object-top transition duration-500 md:scale-110 md:group-hover:scale-105"
+              src={image}
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          </div>
+
+          <div class="flex flex-1 flex-col p-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                {title}
+              </h3>
+
+              <div class="mt-3 flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span class={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${tag.class}`}>
+                    {tag.name}
+                  </span>
+                ))}
+              </div>
+
+              <p class="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                {description}
+              </p>
+            </div>
+
+            <footer class="mt-6 flex flex-wrap items-center gap-3">
+              {github && (
+                <SocialPill href={github} class="bg-gray-800 hover:bg-gray-700 hover:ring-gray-700 dark:bg-[#24292e] dark:hover:bg-[#24292e]/90 dark:hover:ring-[#24292e]">
+                  <Github class="size-6" />
+                  Code
+                </SocialPill>
+              )}
+              {link && (
+                <SocialPill href={link} class="bg-blue-600 hover:bg-blue-700 hover:ring-blue-600">
+                  <Link class="size-4" />
+                  Preview
+                </SocialPill>
+              )}
+            </footer>
+          </div>
+        </article>
+      ))
+    }
   </div>
-</article>
-    ))
-  }
 </div>
