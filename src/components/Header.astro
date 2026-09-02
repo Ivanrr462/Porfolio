@@ -12,16 +12,19 @@ const navItems = [
 
 <header class="fixed top-0 z-50 w-full flex justify-center pt-3 px-4">
 
-  <!-- Desktop nav -->
+  <!-- Desktop nav — minimal clean -->
   <nav
     id="desktop-nav"
-    class="hidden md:flex items-center gap-1 px-3 text-sm font-medium rounded-full
-      text-gray-700 dark:text-gray-200 transition-colors duration-300"
+    class="hidden md:flex items-center gap-0.5 px-1.5 text-sm font-medium rounded-full
+      bg-white/65 dark:bg-[#0e0e1a]/60 backdrop-blur-md
+      border border-gray-200/50 dark:border-white/[0.06]
+      shadow-[0_1px_8px_rgba(0,0,0,0.04)] dark:shadow-none
+      text-gray-600 dark:text-gray-300 transition-all duration-300"
   >
     {navItems.map((link) => (
       <a
-        class="relative text-[15px] block px-3 py-2 transition-colors duration-200
-          hover:text-blue-600 dark:hover:text-blue-400"
+        class="relative text-[13.5px] tracking-tight block px-3 py-[7px] rounded-full transition-colors duration-200
+          hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/[0.06]"
         aria-label={link.label}
         href={link.url}
       >
@@ -29,52 +32,57 @@ const navItems = [
       </a>
     ))}
 
+    <span class="mx-1 h-4 w-px bg-gray-200 dark:bg-white/10"></span>
+
     <button
       id="theme-toggle"
       aria-label="Toggle theme"
-      class="ml-2 p-2 rounded-full transition-all duration-300
-        text-gray-600 dark:text-gray-300
-        hover:bg-gray-200/70 dark:hover:bg-white/10"
+      class="p-1.5 rounded-full transition-colors duration-200
+        text-gray-500 dark:text-gray-400
+        hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10"
     >
-      <Luna class="w-5 h-5 block dark:hidden" />
-      <Sol class="w-5 h-5 hidden dark:block" />
+      <Luna class="w-4 h-4 block dark:hidden" />
+      <Sol class="w-4 h-4 hidden dark:block" />
     </button>
   </nav>
 
-  <!-- Mobile bar -->
+  <!-- Mobile bar — minimal -->
   <div
     id="mobile-bar"
     class="md:hidden flex items-center justify-between w-full max-w-sm
-      px-4 py-2 rounded-full
-      text-gray-700 dark:text-gray-200"
+      px-3.5 py-1.5 rounded-full
+      bg-white/70 dark:bg-[#0e0e1a]/70 backdrop-blur-md
+      border border-gray-200/50 dark:border-white/[0.06]
+      shadow-[0_1px_8px_rgba(0,0,0,0.04)] dark:shadow-none
+      text-gray-600 dark:text-gray-300"
   >
-    <span class="text-sm font-semibold text-gray-900 dark:text-white">Iván Ríos</span>
+    <span class="text-[13px] font-semibold tracking-tight text-gray-900 dark:text-white">Iván Ríos</span>
 
-    <div class="flex items-center gap-1">
+    <div class="flex items-center gap-0.5">
       <!-- Theme toggle mobile -->
       <button
         id="theme-toggle-mobile"
         aria-label="Toggle theme"
-        class="p-2 rounded-full transition-all duration-300
-          text-gray-600 dark:text-gray-300
-          hover:bg-gray-200/70 dark:hover:bg-white/10"
+        class="p-2 rounded-full transition-colors duration-200
+          text-gray-500 dark:text-gray-400
+          hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10"
       >
-        <Luna class="w-5 h-5 block dark:hidden" />
-        <Sol class="w-5 h-5 hidden dark:block" />
+        <Luna class="w-4 h-4 block dark:hidden" />
+        <Sol class="w-4 h-4 hidden dark:block" />
       </button>
 
       <!-- Hamburger -->
       <button
         id="menu-toggle"
         aria-label="Open menu"
-        class="p-2 rounded-full transition-all duration-300
-          text-gray-600 dark:text-gray-300
-          hover:bg-gray-200/70 dark:hover:bg-white/10"
+        class="p-2 rounded-full transition-colors duration-200
+          text-gray-500 dark:text-gray-400
+          hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10"
       >
-        <svg id="icon-menu" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg id="icon-menu" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-        <svg id="icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg id="icon-close" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
@@ -177,71 +185,78 @@ const navItems = [
 </script>
 
 <style>
-  #desktop-nav {
-    animation: nav-shadow 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
+  /* Minimal clean — no heavy scroll animation, keeps pill subtle always */
+  #desktop-nav,
+  #mobile-bar {
+    /* fallback for browsers without scroll-timeline: stays minimal */
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
-  #mobile-bar {
-    animation: nav-shadow-mobile 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
+  /* Only enhance on scroll where supported — very subtle */
+  @supports (animation-timeline: scroll()) {
+    #desktop-nav {
+      animation: nav-shadow 1s linear both;
+      animation-timeline: scroll();
+      animation-range: 0 80px;
+    }
+    #mobile-bar {
+      animation: nav-shadow-mobile 1s linear both;
+      animation-timeline: scroll();
+      animation-range: 0 80px;
+    }
+    :global(html.dark) #desktop-nav {
+      animation: nav-shadow-dark 1s linear both;
+      animation-timeline: scroll();
+      animation-range: 0 80px;
+    }
+    :global(html.dark) #mobile-bar {
+      animation: nav-shadow-dark-mobile 1s linear both;
+      animation-timeline: scroll();
+      animation-range: 0 80px;
+    }
   }
 
   @keyframes nav-shadow {
-    0%   { background-color: transparent; }
+    0%   { background-color: rgba(255,255,255,0.45); border-color: rgba(0,0,0,0.06); box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
     100% {
-      background-color: rgba(255, 255, 255, 0.7);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      background-color: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-color: rgba(0, 0, 0, 0.08);
     }
   }
 
   @keyframes nav-shadow-mobile {
-    0%   { background-color: transparent; }
+    0%   { background-color: rgba(255,255,255,0.55); border-color: rgba(0,0,0,0.06); box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
     100% {
       background-color: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-color: rgba(0, 0, 0, 0.08);
     }
   }
 
-  :global(html.dark) #desktop-nav {
-    animation: nav-shadow-dark 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
-
-  :global(html.dark) #mobile-bar {
-    animation: nav-shadow-dark-mobile 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
-
   @keyframes nav-shadow-dark {
-    0%   { background-color: transparent; }
+    0%   { background-color: rgba(14,14,26,0.45); border-color: rgba(255,255,255,0.06); box-shadow: none; }
     100% {
-      background-color: rgba(10, 10, 30, 0.7);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background-color: rgba(14, 14, 26, 0.7);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-color: rgba(255, 255, 255, 0.08);
     }
   }
 
   @keyframes nav-shadow-dark-mobile {
-    0%   { background-color: transparent; }
+    0%   { background-color: rgba(14,14,26,0.55); border-color: rgba(255,255,255,0.06); box-shadow: none; }
     100% {
-      background-color: rgba(10, 10, 30, 0.8);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background-color: rgba(14, 14, 26, 0.75);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-color: rgba(255, 255, 255, 0.08);
     }
   }
 </style>

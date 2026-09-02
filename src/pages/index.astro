@@ -24,28 +24,30 @@ import profileImg from '../assets/me.png';
     <!-- Hero -->
     <Container class="pt-28 pb-16 md:pt-44 md:pb-32">
       <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
-        <Image
-          src={profileImg}
-          alt="Iván Ríos profile photo"
-          class="rounded-full w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 object-cover shadow-lg"
-          widths={[128, 160, 176]}
-          sizes="(max-width: 768px) 128px, (max-width: 1024px) 160px, 176px"
-        />
-        <div>
-          <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2">
-            <h1 class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold">
+        <div class="relative shrink-0">
+          <Image
+            src={profileImg}
+            alt="Iván Ríos profile photo"
+            class="rounded-full w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 object-cover ring-1 ring-black/5 dark:ring-white/10 ring-offset-2 ring-offset-white dark:ring-offset-[#050816] shadow-[0_16px_40px_rgba(15,23,42,0.10)]"
+            widths={[128, 160, 176]}
+            sizes="(max-width: 768px) 128px, (max-width: 1024px) 160px, 176px"
+          />
+        </div>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-2">
+            <h1 class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.02em]">
               Hey, I'm Iván Ríos
             </h1>
             <Badge>Open to Work</Badge>
           </div>
-          <p class="mt-3 text-gray-600 dark:text-gray-400 text-lg lg:text-xl text-pretty max-w-[600px]">
+          <p class="mt-3 text-gray-600 dark:text-gray-400 text-[17px] md:text-lg lg:text-xl leading-relaxed text-pretty max-w-[560px]">
             Full Stack Developer who loves creating cool stuff and solving real problems.
           </p>
         </div>
       </div>
 
       <section class="mt-14 md:mt-20" id="about">
-        <h2 class="text-2xl md:text-3xl font-semibold mb-4 md:mb-6 flex gap-x-3 items-center justify-center md:justify-start text-gray-900 dark:text-white">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4 md:mb-6 flex gap-x-3 items-center justify-center md:justify-start text-gray-900 dark:text-white">
           <User class="size-7" />
           About
         </h2>
@@ -83,7 +85,7 @@ import profileImg from '../assets/me.png';
 
     <!-- Tech Skills -->
     <Container id="skills">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
         <svg class="size-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
@@ -94,7 +96,7 @@ import profileImg from '../assets/me.png';
 
     <!-- Work Experience -->
     <Container id="experiencia">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
         <Briefcase class="size-7" />
         Work Experience
       </h2>
@@ -103,7 +105,7 @@ import profileImg from '../assets/me.png';
 
     <!-- Projects -->
     <Container id="proyectos">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
         <CodeIcon class="size-7" />
         Projects
       </h2>
@@ -112,7 +114,7 @@ import profileImg from '../assets/me.png';
 
     <!-- Contact -->
     <Container id="contacto">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-5 md:mb-6 flex gap-x-3 items-center text-gray-900 dark:text-white">
         <svg class="size-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
